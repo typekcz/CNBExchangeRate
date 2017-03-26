@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>💱 CNB Exchange Rates</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <link rel="shortcut icon" href="">
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://cdn.jtsage.com/datebox/latest/jqm-datebox.min.css">
+        <script type="text/javascript" src="http://cdn.jtsage.com/datebox/latest/jqm-datebox.core.min.js"></script>
+        <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
+		<script type="text/javascript" src="http://cdn.jtsage.com/datebox/i18n/jquery.mobile.datebox.i18n.cs.utf8.min.js"></script>
+		<style type="text/css">
+			body[lang=cs] [lang=en] {
+				display: none;
+			}
+			
+			body[lang=en] [lang=cs] {
+				display: none;
+			}
+			
+			.footer {
+				text-align: right;
+				padding: 5px 15px;
+			}
+		</style>
+    </head>
+
+<body lang="cs">
+<div data-role="page" id="pageOne" >
+    
+    <div data-role="header">
+        <h1 lang="en">💱 CNB Exchange Rates</h1>
+		<h1 lang="cs">💱 Kurzovní lístek ČNB</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <form id="currencies_form">
+            <label for="amount_czk">CZK:</label>
+            <input type="text" name="amount_czk" id="amount_czk" onkeyup="prevodnik.amountChanged(false)">
+            <label for="amount_cur" id="currency_label">CUR:</label>
+            <input type="text" name="amount_cur" id="amount_cur" onkeyup="prevodnik.amountChanged(true)">
+            <label for="currency" lang="en">Currency:</label>
+			<label for="currency" lang="cs">Měna:</label>
+            <input list="currencies" name="currency" onselect="prevodnik.currencyChanged()" onchange="prevodnik.currencyChanged()">
+            <datalist id="currencies"></datalist>
+			<label for="date" lang="en">Date of conversion:</label>
+			<label for="date" lang="cs">Datum konverze:</label>
+			<input data-role="datebox" data-options='{"mode":"datebox", "useLang":"cs", "useFocus":true, "useHeader":false}' type="text" name="date" id="date">
+			<label for="lang" lang="en">Language</label>
+			<label for="lang" lang="cs">Jazyk</label>
+			<select name="lang" id="lang" onchange="prevodnik.langChanged(this.value)">
+				<option value="cs" selected>Česky</option>
+				<option value="en">English</option>
+			</select>
+        </form>
+    </div>
+
+    <div class="footer" data-role="footer">
+		<small>
+			<a href="mailto:lkotrzena@gmail.com">lkotrzena@gmail.com</a>
+		</small>
+    </div>
+    
+</div>
+</body>    
+</html>
